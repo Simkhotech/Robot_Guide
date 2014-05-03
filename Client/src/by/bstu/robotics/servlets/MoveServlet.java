@@ -57,7 +57,6 @@ public class MoveServlet extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/MovePage.jsp").forward(request,
 					response);
 		}
-
 	}
 
 	/**

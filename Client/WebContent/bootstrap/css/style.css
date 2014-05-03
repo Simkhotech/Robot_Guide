@@ -14,7 +14,6 @@ div.body {
 div.header {
 	width: 100%;
 	height: 150px;
-	float: none;
 }
 
 div.statement {
@@ -28,8 +27,8 @@ div.statement {
 div.logo {
 	width: 279px;
 	height: 150px;
-	float: left;
 	background-color: #F1F1F1;
+	margin: auto;
 }
 
 div.content {

@@ -68,9 +68,10 @@ public class App extends HttpServlet {
 		System.out.println(excursions.toString());
 		String name = request.getParameter("name");
 
-		if (name.equals("Ex1")) {
+		if (name.equals("Start")) {
 			request.setAttribute("Excursion", excursions.get(0));
 
+			
 			request.getRequestDispatcher("/WEB-INF/MovePage.jsp").forward(request,
 					response);
 		} else {
