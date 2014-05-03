@@ -1,4 +1,4 @@
-<%@page import="by.bstu.robotics.excursions.Excursion"%>
+﻿<%@page import="by.bstu.robotics.excursions.Excursion"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -31,7 +31,7 @@
 
 			<br />
 
-			<audio controls>
+			<audio controls autoplay>
 				<source src="/Guide/audio/file.mp3" type="audio/mpeg" preload="auto" autoplay="autoplay"> Тег audio не поддерживается вашим браузером.
 			</audio>
 
