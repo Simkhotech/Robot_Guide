@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Guide</display-name>
+  <welcome-file-list>
+    <welcome-file>App</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Config</display-name>
+    <servlet-name>Config</servlet-name>
+    <servlet-class>by.bstu.robotics.servlets.Config</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Config</servlet-name>
+    <url-pattern>/Config</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MoveServlet</display-name>
+    <servlet-name>MoveServlet</servlet-name>
+    <servlet-class>by.bstu.robotics.servlets.MoveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MoveServlet</servlet-name>
+    <url-pattern>/MoveServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>App</display-name>
+    <servlet-name>App</servlet-name>
+    <servlet-class>by.bstu.robotics.servlets.App</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>App</servlet-name>
+    <url-pattern>/App</url-pattern>
+  </servlet-mapping>
+</web-app>

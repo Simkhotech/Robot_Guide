@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee" version="2.0">
+
+	<tlibversion>1.0</tlibversion>
+	<jsp-version>2.0</jsp-version>
+	<shortname>sec</shortname>
+	<info>Tag library for securing</info>
+	-
+	<tag>
+		<name>permission</name>
+		<tagclass>by.bstu.robotics.util.PermissionTag</tagclass>
+		<bodycontent>scriptless</bodycontent>
+		
+		<attribute>
+			<name>role</name>
+			<required>true</required>
+			<!-- <rtexprvalue>true</rtexprvalue> -->
+		</attribute>
+	</tag>
+</taglib>
+

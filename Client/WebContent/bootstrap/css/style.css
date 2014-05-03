@@ -1,0 +1,82 @@
+
+<style type="text/css">
+body {
+	background-color: silver;
+}
+
+div.body {
+	width: 1024px;
+	height: 600px;
+	border: 1px solid black;
+	background-color: #FFFFFF;
+}
+
+div.header {
+	width: 100%;
+	height: 150px;
+	float: none;
+}
+
+div.statement {
+	width: 300px;
+	height: 150px;
+	float: right;
+	text-align: center;
+	background-color: #F1F1F1;
+}
+
+div.logo {
+	width: 279px;
+	height: 150px;
+	float: left;
+	background-color: #F1F1F1;
+}
+
+div.content {
+	width: 100%;
+	height: 106px;
+	
+	float: none;
+	margin-bottom: 5%;
+	margin-top: 5%;
+	
+}
+
+excursion {
+	width: 200px;
+	height: 100px;
+	float: left;
+	border: 3px outset #999999;
+	border-radius: 15px;
+	
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+div.excursion h2 {
+	text-align: center;
+}
+
+img.excursion-1 {
+	background-color: #FFD0D0;
+}
+
+img.excursion-2 {
+	background-color: #FFF9D0;
+}
+
+img.excursion-3 {
+	background-color: #D0FFDD;
+}
+
+div.main-bottom {
+	width: 1000px;
+	height: 220px;
+	border: 3px outset #999999;
+	text-align: center;
+	float: none;
+	border-radius: 15px;
+	margin: auto;
+	margin-bottom: 15px; 
+}
+</style>
