@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import by.bstu.robotics.Robot.Constants;
+import by.bstu.robotics.Robot.GlobalPoint;
+import by.bstu.robotics.Robot.Robot;
 import by.bstu.robotics.excursions.Excursion;
 import by.bstu.robotics.util.LocalhostDBConnection;
 
@@ -68,7 +71,7 @@ public class App extends HttpServlet {
 		System.out.println(excursions.toString());
 		String name = request.getParameter("name");
 
-		if (name.equals("Ex1")) {
+		if (name.equals("Start")) {
 			request.setAttribute("Excursion", excursions.get(0));
 
 			request.getRequestDispatcher("/WEB-INF/MovePage.jsp").forward(request,

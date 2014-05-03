@@ -97,7 +97,7 @@ public class LocalhostDBConnection {
 					
 						while (rs.next()) {
 							exhibits.add(new Exhibit(rs.getInt(1), rs.getString(2), rs.getBoolean(3),
-									rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7)));
+									rs.getString(5), rs.getString(4), rs.getInt(6), rs.getInt(7)));
 						}
 						
 					}

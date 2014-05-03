@@ -32,7 +32,7 @@ public class Robot implements Runnable {
 		
 //		run();
 	}
-
+	
 	public void run() {
 		System.out.println("Robot started.");
 
@@ -44,7 +44,28 @@ public class Robot implements Runnable {
 			System.out.println("Connected.");
 			System.out.println("You cand driving...");
 			
-			driveAToBToD();
+			SimpleDriver();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		
+		System.out.println("Done.");
+	}
+
+	public void run(GlobalPoint point) {
+		System.out.println("Robot started.");
+
+		try {
+			System.out.println("Initializing...");
+			init();
+			System.out.println("Connecting...");
+			connect(hostname);
+			System.out.println("Connected.");
+			System.out.println("You cand driving...");
+			
+			driveToPoint(point);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -65,7 +86,7 @@ public class Robot implements Runnable {
 			System.out.println("Connected.");
 			System.out.println("You cand driving...");
 
-			drive(globalPoints);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -74,14 +95,74 @@ public class Robot implements Runnable {
 
 		System.out.println("Done.");
 	}
+	
+	/*
+	 * Just for test odometers.
+	 */
+	private void SimpleDriver() {
+		System.out.println("Start driving");
+		odometry.set(0, 0, 0);
+		System.out.println(odometry.x());
+		while (odometry.x() < 100) {
+			omniDrive.setVelocity(40, 0, 10);
+		}
+		System.out.println(odometry.x());
+		System.out.println("Stop driving");
+	}
+	
+	/*
+	 * Main function to move to the XY coordinates.
+	 */
+	private void driveToPoint(GlobalPoint point) {
+		System.out.println("Start driving");
+		
+		// Move the robot around itself to turn to 0 angle
+		while (odometry.phi() > 1 || odometry.phi() < -1) {
+			if (odometry.phi() > 0) {
+				omniDrive.setVelocity(0, 0, -30);
+			} else {
+				omniDrive.setVelocity(0, 0, 30);
+			}
+			// System.out.println(odometry.phi());
+		}
+		
+		// проверить координаты
+		while (Math.abs(odometry.x() - point.getX()) > 1 || 
+				Math.abs(odometry.y() - point.getY()) > 1) {
+			
+			XFrontSpeed = (point.getX() - odometry.x())*10;
+			YLeftSpeed = (point.getY() - odometry.y())*10;
+			if ( Math.abs(odometry.x() - point.getX()) > Constants.SENSOR_RADIUS-90) {
+				if (odometry.x() - point.getX() < 0){
+					XFrontSpeed = Constants.LINE_SPEED;
+				} else {
+					XFrontSpeed = -Constants.LINE_SPEED;
+				}
+			}
+			if ( Math.abs(odometry.y() - point.getY()) > Constants.SENSOR_RADIUS-90) {
+				if (odometry.y() - point.getY() < 0){
+					YLeftSpeed = Constants.LINE_SPEED;
+				} else {
+					YLeftSpeed = -Constants.LINE_SPEED;
+				}
+			}
+
+			omniDrive.setVelocity( XFrontSpeed, YLeftSpeed, 0);
+			
+			System.out.println(odometry.x() + "\t(" + point.getX() + ") - "
+								+ odometry.y() + "\t(" + point.getY() + ")");
+		}
+		
+		System.out.println("Stop driving");
+	}
 
 	private void drive(ArrayList<GlobalPoint> globalPoints) {
 		System.out.println(globalPoints);
 
 		for (GlobalPoint point : globalPoints) {
 			// место
-				// повернуться на 0
-//			odometry.set(0, 0, 160);					//test
+			// повернуться на 0
+//			odometry.set(0, 0, 160);
 			while (odometry.phi() > 1 || odometry.phi() < -1) {
 				if (odometry.phi() > 0) {
 					omniDrive.setVelocity(0, 0, -30);
@@ -90,14 +171,13 @@ public class Robot implements Runnable {
 				}
 				// System.out.println(odometry.phi()); 	//test
 			}
-				// проверить координаты
+			// проверить координаты
 			while (Math.abs(odometry.x() - point.getX()) > 1 || 
 					Math.abs(odometry.y() - point.getY()) > 1) {
 				
 				XFrontSpeed = (point.getX() - odometry.x())*10;
 				YLeftSpeed = (point.getY() - odometry.y())*10;
-	//			YRightSpeed = (getDistance().get(7) - Constants.ACCESS_WALL_DISTANCE)* (100);
-	//			XBackSpeed = (getDistance().get(4) - Constants.ACCESS_WALL_DISTANCE)* (100);
+
 				if ( Math.abs(odometry.x() - point.getX()) > Constants.SENSOR_RADIUS-90) {
 					if (odometry.x() - point.getX() < 0){
 						XFrontSpeed = Constants.LINE_SPEED;
@@ -118,13 +198,6 @@ public class Robot implements Runnable {
 				System.out.println(odometry.x() + "\t(" + point.getX() + ") - "
 									+ odometry.y() + "\t(" + point.getY() + ")");
 			}
-
-				// движение до точки или до препятствия
-			// корректировка
-				// проверить датчики
-				// подъезд
-			// повернуться правильно
-			// сигнал
 		}
 	}
 

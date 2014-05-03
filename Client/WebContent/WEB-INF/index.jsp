@@ -23,32 +23,11 @@
 <body>
 	<div class="body">
 		<div class="main">
-			<div class="header">
-				<div class="logo">
-					<img src="./bootstrap/img/logo.png" alt="Logo" height="150px">
-				</div>
-
-				<div id="sensors" class="statement">
-					<iframe id="dt" src="WEB-INF/sensors.jsp" onload="javascript:show();"></iframe>
-					<!--					<font> Batary: 56%<br /> <br /> Sensors<br /> Sensor 1:
-						45cm | Sensor 5: 37cm<br /> Sensor 2: 09cm | Sensor 6: 64cm<br />
-						Sensor 3: 65cm | Sensor 7: 43cm<br /> Sensor 4: 36cm | Sensor 8:
-						25cm<br />
-						<h6></h6>
-					</font>-->
-				</div>
-			</div>
-
-			<a href="javascript:show()">Основные настройки</a>
-
-			<div class="content">
+			<jsp:include page="header.jsp"></jsp:include>
+			<div class="content" style="text-align: center;">
 				<form name="" method="post" action="/Guide/App">
-					<input class="excursion excursion-1" type="submit" 
-						value="Ex1" name="name" title="Экскурсия 1"> <br /> 
-					<input class="excursion excursion-2" type="image" 
-						value="Ex2" name="name" title="Экскурсия 2"> <br />
-					<input class="excursion excursion-3" type="image" 
-						value="Ex3" name="name" title="Экскурсия 3">
+					<button class="btn btn-large btn-info" type="submit" style="width: 80%; height: 100px;"
+						value="Start" name="name" title="Экскурсия 1">Экскурсия 1</button><br /> 
 				</form>
 			</div>
 

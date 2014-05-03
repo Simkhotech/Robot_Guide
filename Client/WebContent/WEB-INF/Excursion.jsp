@@ -1,4 +1,4 @@
-<%@page import="by.bstu.robotics.excursions.Excursion"%>
+﻿<%@page import="by.bstu.robotics.excursions.Excursion"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -25,29 +25,14 @@
 <body>
 	<div class="body">
 		<div class="main">
-
-			<div class="header">
-				<div class="logo">
-					<h1>BrSTU_Robotics logo!</h1>
-				</div>
-
-				<div class="some">English - Русский</div>
-
-				<div class="statement">
-					<font> Batary: 56%<br /> <br /> Sensors<br /> Sensor 1:
-						45cm | Sensor 5: 37cm<br /> Sensor 2: 09cm | Sensor 6: 64cm<br />
-						Sensor 3: 65cm | Sensor 7: 43cm<br /> Sensor 4: 36cm | Sensor 8:
-						25cm<br />
-					</font>
-				</div>
-			</div>
+			<jsp:include page="header.jsp"></jsp:include>
 
 			<h3 align="center"><%=request.getAttribute("Name")%></h3>
 
 			<br />
 
-			<audio controls>
-				<source src=/Guide/audio/music.mp3 type="audio/mpeg"> Тег audio не поддерживается вашим браузером.
+			<audio controls autoplay>
+				<source src="/Guide/audio/file.mp3" type="audio/mpeg" preload="auto" autoplay="autoplay"> Тег audio не поддерживается вашим браузером.
 			</audio>
 
 			<br />
