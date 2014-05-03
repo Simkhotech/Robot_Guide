@@ -1,7 +1,7 @@
 package by.bstu.robotics.Robot;
 
 public class Constants {
-	public  static final String ROTATE_ON_B_POSITION_FLAG = "rotate_on_A_position";
+	public static final String ROTATE_ON_B_POSITION_FLAG = "rotate_on_A_position";
 	public static final String GO_TO_B_FLAG = "go_to_B";
 	public static final String GO_TO_D_FLAG = "go_to_D";
 	public static final String ROTATE_TO_START_POSIOTION_FLAG = "rotate_to_start posiotion";
@@ -22,4 +22,5 @@ public class Constants {
 	public static final int RIGHT = 3;
 	public static final float LINE_SPEED = 100;
 	public static final float SENSOR_RADIUS = 100;
+	public static final String HOSTNAME = "172.26.1.1";
 }

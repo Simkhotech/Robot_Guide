@@ -40,7 +40,13 @@
 			<blockquote>
 				<p><%=request.getAttribute("Description")%></p>
 			</blockquote>
-
+			
+			<div class="content" style="text-align: center;">
+				<form name="" method="post" action="/Guide/MoveServlet">
+					<button class="btn btn-large btn-info" type="submit" style="width: 80%; height: 100px;"
+						value="Start" name="name">Next</button><br /> 
+				</form>
+			</div>
 
 			<div style="clear: both;"></div>
 		</div>
