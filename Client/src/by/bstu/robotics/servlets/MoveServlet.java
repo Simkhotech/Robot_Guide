@@ -3,12 +3,14 @@ package by.bstu.robotics.servlets;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import by.bstu.robotics.Robot.Constants;
+import by.bstu.robotics.Robot.GlobalPoint;
+import by.bstu.robotics.Robot.Robot;
 import by.bstu.robotics.excursions.Excursion;
 import by.bstu.robotics.excursions.Exhibit;
 
@@ -40,23 +42,26 @@ public class MoveServlet extends HttpServlet {
 		boolean use = false;
 
 		for (Exhibit exhibit : excursion.getExhibits()) {
-			if (exhibit.getUse()) {
-				use = true;
+//			if (exhibit.getUse()) {
+//				use = true;
 				request.setAttribute("Name", exhibit.getName());
 				request.setAttribute("Description", exhibit.getDescription());
 
 				((Excursion) session.getAttribute("Excursion")).getExhibit(
 						exhibit.getId()).setUse(false);
 
+				Robot robot = new Robot("172.26.1.1");
+		        robot.run(new GlobalPoint(1000, 0, 0, -1f, Constants.ACCESS_WALL_DISTANCE, Constants.ACCESS_WALL_DISTANCE, -1f));
+		        
 				request.getRequestDispatcher("/WEB-INF/Excursion.jsp").forward(
 						request, response);
 				return;
 			}
-		}
-		if (!use) {
-			request.getRequestDispatcher("/WEB-INF/MovePage.jsp").forward(request,
-					response);
-		}
+//		}
+//		if (!use) {
+//			request.getRequestDispatcher("/WEB-INF/MovePage.jsp").forward(request,
+//					response);
+//		}
 	}
 
 	/**

@@ -55,7 +55,7 @@ public class Robot implements Runnable {
 		System.out.println("Done.");
 	}
 
-	public void run(ArrayList<GlobalPoint> globalPoints) {
+	public void run(GlobalPoint globalPoint) {
 		System.out.println("Robot started.");
 
 		try {
@@ -66,7 +66,7 @@ public class Robot implements Runnable {
 			System.out.println("Connected.");
 			System.out.println("You cand driving...");
 
-			drive(globalPoints);
+			drive(globalPoint);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -76,22 +76,16 @@ public class Robot implements Runnable {
 		System.out.println("Done.");
 	}
 
-	private void drive(ArrayList<GlobalPoint> globalPoints) {
-		System.out.println(globalPoints);
+	private void drive(GlobalPoint point) {
+		System.out.println(point);
 
-		for (GlobalPoint point : globalPoints) {
-			// �����
-				// ����������� �� 0
-//			odometry.set(0, 0, 160);					//test
 			while (odometry.phi() > 1 || odometry.phi() < -1) {
 				if (odometry.phi() > 0) {
 					omniDrive.setVelocity(0, 0, -30);
 				} else {
 					omniDrive.setVelocity(0, 0, 30);
 				}
-				// System.out.println(odometry.phi()); 	//test
 			}
-				// ��������� ����������
 			while (Math.abs(odometry.x() - point.getX()) > 1 || 
 					Math.abs(odometry.y() - point.getY()) > 1) {
 				
@@ -119,14 +113,6 @@ public class Robot implements Runnable {
 				System.out.println(odometry.x() + "\t(" + point.getX() + ") - "
 									+ odometry.y() + "\t(" + point.getY() + ")");
 			}
-
-				// �������� �� ����� ��� �� �����������
-			// �������������
-				// ��������� �������
-				// �������
-			// ����������� ���������
-			// ������
-		}
 	}
 
 	protected void init() {
