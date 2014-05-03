@@ -6,36 +6,54 @@
 	<description> Welcome </description>
 	<audio URL="sounds/welcome.mp3"/>
 	<visual URL="pictures/welcome.jpg"/>
+	<x>0</x>
+	<y>0</y>
+	<phi>0</phi>
 </exhibit>
 
 <exhibit id="2">
 	<description> Common Info </description>
 	<audio URL="sounds/common.mp3"/>
 	<visual URL="pictures/common.jpg"/>
+	<x>0</x>
+	<y>0</y>
+	<phi>0</phi>
 </exhibit>
 
 <exhibit id="3">
 	<description> Infocenter </description>
 	<audio URL="sounds/info.mp3"/>
 	<visual URL="pictures/info.jpg"/>
+	<x>1000</x>
+	<y>0</y>
+	<phi>0</phi>
 </exhibit>
 
 <exhibit id="4">
 	<description> Bar </description>
 	<audio URL="sounds/bar.mp3"/>
 	<visual URL="pictures/bar.jpg"/>
+	<x>2000</x>
+	<y>1000</y>
+	<phi>0</phi>
 </exhibit>
 
 <exhibit id="5">
 	<description> Kalilaska </description>
 	<audio URL="sounds/kalilaska.mp3"/>
 	<visual URL="pictures/kalilaska.jpg"/>
+	<x>6000</x>
+	<y>0</y>
+	<phi>0</phi>
 </exhibit>
 
 <exhibit id="6">
 	<description> End </description>
 	<audio URL="sounds/end.mp3"/>
 	<visual URL="pictures/end.jpg"/>
+	<x>0</x>
+	<y>0</y>
+	<phi>0</phi>
 </exhibit>
 
 </ExcursionTitle>
