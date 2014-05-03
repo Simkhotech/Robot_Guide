@@ -39,22 +39,17 @@ public class MoveServlet extends HttpServlet {
 
 		Excursion excursion = (Excursion) session.getAttribute("Excursion");
 
-		boolean use = false;
+		Exhibit exhibit = excursion.getExhibits().get(0);
 
-		for (Exhibit exhibit : excursion.getExhibits()) {
-//			if (exhibit.getUse()) {
-//				use = true;
-				request.setAttribute("Name", exhibit.getName());
-				request.setAttribute("Description", exhibit.getDescription());
+		request.setAttribute("Name", exhibit.getName());
+		request.setAttribute("Description", exhibit.getDescription());
 
-				((Excursion) session.getAttribute("Excursion")).getExhibit(
-						exhibit.getId()).setUse(false);
-
-				Robot robot = new Robot("172.26.1.1");
-		        robot.run(new GlobalPoint(1000, 0, 0, -1f, Constants.ACCESS_WALL_DISTANCE, Constants.ACCESS_WALL_DISTANCE, -1f));
+		excursion.removeExhibit(0);
+		
+		Robot robot = new Robot(Constants.HOSTNAME);
+		robot.run(new GlobalPoint(100, 0, 0, -1f, Constants.ACCESS_WALL_DISTANCE, Constants.ACCESS_WALL_DISTANCE, -1f));
 		        
-				request.getRequestDispatcher("/WEB-INF/Excursion.jsp").forward(
-						request, response);
+		request.getRequestDispatcher("/WEB-INF/Excursion.jsp").forward(request, response);
 				return;
 			}
 //		}
@@ -62,7 +57,7 @@ public class MoveServlet extends HttpServlet {
 //			request.getRequestDispatcher("/WEB-INF/MovePage.jsp").forward(request,
 //					response);
 //		}
-	}
+//	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -70,5 +65,9 @@ public class MoveServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		request.getRequestDispatcher("/WEB-INF/MovePage.jsp").forward(request,
+				response);
 	}
 }

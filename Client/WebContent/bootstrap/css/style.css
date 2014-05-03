@@ -5,7 +5,7 @@ body {
 }
 
 div.body {
-	width: 1024px;
+	width: 800px;
 	height: 600px;
 	border: 1px solid black;
 	background-color: #FFFFFF;
@@ -69,7 +69,7 @@ img.excursion-3 {
 }
 
 div.main-bottom {
-	width: 1000px;
+	width: 800px;
 	height: 220px;
 	border: 3px outset #999999;
 	text-align: center;

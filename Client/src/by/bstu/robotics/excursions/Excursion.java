@@ -42,4 +42,8 @@ public final class Excursion {
 		
 	}
 
+	public void removeExhibit(int i) {
+		exhibits.remove(0);
+	}
+
 }
