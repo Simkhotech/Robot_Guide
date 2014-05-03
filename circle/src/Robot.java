@@ -44,7 +44,8 @@ public class Robot implements Runnable {
 			System.out.println("Connected.");
 			System.out.println("You cand driving...");
 			
-			driveAToBToD();
+//			driveAToBToD();
+			SimpleDriver();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -73,6 +74,17 @@ public class Robot implements Runnable {
 		}
 
 		System.out.println("Done.");
+	}
+	
+	private void SimpleDriver() {
+		System.out.println("Start driving");
+		odometry.set(0, 0, 0);
+		System.out.println(odometry.x());
+		while (odometry.x() < 200) {
+			omniDrive.setVelocity(40, 0, 0);
+		}
+		System.out.println(odometry.x());
+		System.out.println("Stop driving");
 	}
 
 	private void drive(ArrayList<GlobalPoint> globalPoints) {

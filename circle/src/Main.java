@@ -15,7 +15,7 @@ public class Main
         init();
         
         Robot robot = new Robot(hostname);
-        robot.run(points);
+        robot.run();
     }
 
 	private static void init() {
