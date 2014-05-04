@@ -124,7 +124,6 @@ public class Robot implements Runnable {
 		double ySpeedCoef = 0;
 		double xSpeed = 0;
 		double ySpeed = 0;
-		double radius = 0;
 		
 		distance = Math.sqrt(Math.pow(point.getX() - odometry.x(), 2) + 
 				Math.pow(point.getY() - odometry.y(), 2));
@@ -133,41 +132,48 @@ public class Robot implements Runnable {
 				Math.abs(odometry.y() - point.getY()) > 1) {
 			 dx = point.getX() - odometry.x();
 			 dy = point.getY() - odometry.y();
+		
 			 
 			 xSpeedCoef = dx / distance;
 			 ySpeedCoef = dy / distance;
 			 
 			 xSpeed = xSpeedCoef * Constants.LINE_SPEED;
 			 ySpeed = ySpeedCoef * Constants.LINE_SPEED;
-		
+			
 			 omniDrive.setVelocity((float)xSpeed, (float)ySpeed, 0);
-		
-			 radius = (Math.pow(point.getX(), 2) + Math.pow(point.getY(), 2))
-					 - (Math.pow(odometry.x(), 2) + Math.pow(odometry.y(), 2));
-			 
-			// проверить координаты
-//			while (Math.abs(odometry.x() - point.getX()) > 1 || 
-//					Math.abs(odometry.y() - point.getY()) > 1) {
-			 
-
-			while (radius > Constants.MIN_RADIUS) {
-
+			
+			while (distance > Constants.SLOW_RADIUS) {
+			
 				distance = Math.sqrt(Math.pow(point.getX() - odometry.x(), 2) + 
 						Math.pow(point.getY() - odometry.y(), 2));
-				radius = (Math.pow(point.getX(), 2) + Math.pow(point.getY(), 2))
-						 - (Math.pow(odometry.x(), 2) + Math.pow(odometry.y(), 2));				
-				
 				
 				System.out.print("Remaining distance: ");
 				System.out.println(distance);
-				System.out.println(radius);
 				System.out.println(odometry.x());
 				System.out.println(odometry.y());
 				System.out.println(point.getX());
 				System.out.println(point.getY());
-				
-				
 			}
+			
+			double slowCoef = distance / Constants.SLOW_RADIUS;
+			omniDrive.setVelocity((float)(xSpeed * slowCoef), (float)(ySpeed * slowCoef), 0);
+				
+			while (distance > Constants.MIN_RADIUS) {
+
+				
+				distance = Math.sqrt(Math.pow(point.getX() - odometry.x(), 2) + 
+						Math.pow(point.getY() - odometry.y(), 2));
+
+				slowCoef = distance / Constants.SLOW_RADIUS;
+				omniDrive.setVelocity((float)(xSpeed * slowCoef), (float)(ySpeed * slowCoef), 0);
+				
+				System.out.print("Remaining distance: ");
+				System.out.println(distance);
+				System.out.println(odometry.x());
+				System.out.println(odometry.y());
+				System.out.println(point.getX());
+				System.out.println(point.getY());
+			}			
 			
 			omniDrive.setVelocity(0, 0, 0);
 			
