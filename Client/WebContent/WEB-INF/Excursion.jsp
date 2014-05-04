@@ -27,24 +27,20 @@
 		<div class="main">
 			<jsp:include page="header.jsp"></jsp:include>
 
-			<h3 align="center"><%=request.getAttribute("Name")%></h3>
-
+			<h3 align="center"><%=request.getAttribute("Description")%></h3>
+			<div style="text-align: center;">
+				<img src="<%=request.getAttribute("imgURL")%>" height="200px" />
+			</div>
 			<br />
 
-			<audio controls autoplay>
-				<source src="/Guide/audio/file.mp3" type="audio/mpeg" preload="auto" autoplay="autoplay"> Тег audio не поддерживается вашим браузером.
+			<audio controls autoplay style="display: none;">
+				<source src="<%=request.getAttribute("audioURL")%>" type="audio/mpeg" preload="auto" autoplay="autoplay"> Тег audio не поддерживается вашим браузером.
 			</audio>
 
-			<br />
-
-			<blockquote>
-				<p><%=request.getAttribute("Description")%></p>
-			</blockquote>
-			
 			<div class="content" style="text-align: center;">
 				<form name="" method="post" action="/Guide/MoveServlet">
 					<button class="btn btn-large btn-info" type="submit" style="width: 80%; height: 100px;"
-						value="Start" name="name">Next</button><br /> 
+						value="Start" name="name">Next</button>
 				</form>
 			</div>
 

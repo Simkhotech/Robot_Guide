@@ -41,8 +41,9 @@ public class MoveServlet extends HttpServlet {
 
 		Exhibit exhibit = excursion.getExhibits().get(0);
 
-		request.setAttribute("Name", exhibit.getName());
 		request.setAttribute("Description", exhibit.getDescription());
+		request.setAttribute("imgURL", exhibit.getImgURL());
+		request.setAttribute("audioURL", exhibit.getAudioURL());
 
 		excursion.removeExhibit(0);
 		

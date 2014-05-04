@@ -4,8 +4,8 @@
 
 <exhibit id="1">
 	<description> Welcome </description>
-	<audio URL="sounds/welcome.mp3"/>
-	<visual URL="pictures/welcome.jpg"/>
+	<audio URL="/Guide/audio/welcome.mp3"/>
+	<visual URL="./bootstrap/img/welcome.png"/>
 	<x>0</x>
 	<y>0</y>
 	<phi>0</phi>
@@ -13,8 +13,8 @@
 
 <exhibit id="2">
 	<description> Common Info </description>
-	<audio URL="sounds/common.mp3"/>
-	<visual URL="pictures/common.jpg"/>
+	<audio URL="/Guide/audio/common_.mp3"/>
+	<visual URL="./bootstrap/img/common.png"/>
 	<x>0</x>
 	<y>0</y>
 	<phi>0</phi>
@@ -22,8 +22,8 @@
 
 <exhibit id="3">
 	<description> Infocenter </description>
-	<audio URL="sounds/info.mp3"/>
-	<visual URL="pictures/info.jpg"/>
+	<audio URL="/Guide/audio/info.mp3"/>
+	<visual URL="./bootstrap/img/info.png"/>
 	<x>100</x>
 	<y>0</y>
 	<phi>0</phi>
@@ -31,8 +31,8 @@
 
 <exhibit id="4">
 	<description> Bar </description>
-	<audio URL="sounds/bar.mp3"/>
-	<visual URL="pictures/bar.jpg"/>
+	<audio URL="/Guide/audio/bar.mp3"/>
+	<visual URL="./bootstrap/img/bar.png"/>
 	<x>200</x>
 	<y>100</y>
 	<phi>0</phi>
@@ -40,8 +40,8 @@
 
 <exhibit id="5">
 	<description> Kalilaska </description>
-	<audio URL="sounds/kalilaska.mp3"/>
-	<visual URL="pictures/kalilaska.jpg"/>
+	<audio URL="/Guide/audio/kalilaska.mp3"/>
+	<visual URL="./bootstrap/img/kalilaska.png"/>
 	<x>600</x>
 	<y>0</y>
 	<phi>0</phi>
@@ -49,8 +49,8 @@
 
 <exhibit id="6">
 	<description> End </description>
-	<audio URL="sounds/end.mp3"/>
-	<visual URL="pictures/end.jpg"/>
+	<audio URL="/Guide/audio/end.mp3"/>
+	<visual URL="./bootstrap/img/end.png"/>
 	<x>0</x>
 	<y>0</y>
 	<phi>0</phi>

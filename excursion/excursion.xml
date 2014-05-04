@@ -22,35 +22,35 @@
 
 <exhibit id="3">
 	<description> Infocenter </description>
-	<audio URL="sounds/info.mp3"/>
-	<visual URL="pictures/info.jpg"/>
-	<x>1000</x>
+	<audio URL="/Guide/audio/info.mp3"/>
+	<visual URL="/Guide/img/info.jpg"/>
+	<x>100</x>
 	<y>0</y>
 	<phi>0</phi>
 </exhibit>
 
 <exhibit id="4">
 	<description> Bar </description>
-	<audio URL="sounds/bar.mp3"/>
-	<visual URL="pictures/bar.jpg"/>
-	<x>2000</x>
-	<y>1000</y>
+	<audio URL="/Guide/audio/bar.mp3"/>
+	<visual URL="/Guide/img/bar.jpg"/>
+	<x>200</x>
+	<y>100</y>
 	<phi>0</phi>
 </exhibit>
 
 <exhibit id="5">
 	<description> Kalilaska </description>
-	<audio URL="sounds/kalilaska.mp3"/>
-	<visual URL="pictures/kalilaska.jpg"/>
-	<x>6000</x>
+	<audio URL="/Guide/audio/kalilaska.mp3"/>
+	<visual URL="/Guide/img/kalilaska.jpg"/>
+	<x>600</x>
 	<y>0</y>
 	<phi>0</phi>
 </exhibit>
 
 <exhibit id="6">
 	<description> End </description>
-	<audio URL="sounds/end.mp3"/>
-	<visual URL="pictures/end.jpg"/>
+	<audio URL="/Guide/audio/end.mp3"/>
+	<visual URL="/Guide/img/end.jpg"/>
 	<x>0</x>
 	<y>0</y>
 	<phi>0</phi>

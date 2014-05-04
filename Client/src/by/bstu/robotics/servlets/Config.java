@@ -70,7 +70,7 @@ public class Config extends HttpServlet {
 							.getAttribute(field);
 					for (Exhibit exhibit : excursion.getExhibits()) {
 						stringBuilder.append("<tr><td>")
-							.append(exhibit.getName())
+							.append(exhibit.getImgURL())
 							.append("</td><td>class: ")
 							.append(exhibit.getDescription())
 							.append("</td></tr><tr><td>Use: ")
