@@ -10,11 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import by.bstu.robotics.Robot.Constants;
-import by.bstu.robotics.Robot.GlobalPoint;
-import by.bstu.robotics.Robot.Robot;
 import by.bstu.robotics.excursions.Excursion;
-import by.bstu.robotics.util.LocalhostDBConnection;
+import by.bstu.robotics.util.ParseXML;
 
 
 /**
@@ -22,7 +19,7 @@ import by.bstu.robotics.util.LocalhostDBConnection;
  */
 public class App extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private LocalhostDBConnection dbConnection;
+	private ParseXML dbConnection;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -43,7 +40,7 @@ public class App extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		RequestDispatcher dispatcher;
-		dbConnection = new LocalhostDBConnection();
+		dbConnection = new ParseXML();
 
 		dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/index.jsp");
 		dispatcher.forward(request, response);
@@ -64,9 +61,9 @@ public class App extends HttpServlet {
 		response.setContentType("text/html");
 
 		ArrayList<Excursion> excursions = new ArrayList<Excursion>(//);
-		dbConnection.getExcursionCount());
+//		dbConnection.getExcursionCount());
 
-		excursions = dbConnection.getExcursions();
+		excursions = dbConnection.Parse());
 
 		System.out.println(excursions.toString());
 		String name = request.getParameter("name");

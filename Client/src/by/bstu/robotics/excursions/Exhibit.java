@@ -17,9 +17,10 @@ public class Exhibit {
 	String description;
 	int x;
 	int y;
+	int phi;
 	
 	public Exhibit(int id, String name, boolean use, String audioURL,
-			String description, int x, int y) {
+			String description, int x, int y, int phi) {
 		this.id = id;
 		this.name = name;
 		this.use = use;
@@ -27,8 +28,13 @@ public class Exhibit {
 		this.description = description;
 		this.x = x;
 		this.y = y;
+		this.phi = phi;
 	}
 	
+	public int getPhi() {
+		return phi;
+	}
+
 	public int getId() {
 		return id;
 	}

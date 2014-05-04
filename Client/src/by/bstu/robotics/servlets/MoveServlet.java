@@ -47,7 +47,7 @@ public class MoveServlet extends HttpServlet {
 		excursion.removeExhibit(0);
 		
 		Robot robot = new Robot(Constants.HOSTNAME);
-		robot.run(new GlobalPoint(100, 0, 0, -1f, Constants.ACCESS_WALL_DISTANCE, Constants.ACCESS_WALL_DISTANCE, -1f));
+		robot.run(new GlobalPoint(exhibit.getX(), exhibit.getY(), 0, -1f, Constants.ACCESS_WALL_DISTANCE, Constants.ACCESS_WALL_DISTANCE, -1f));
 		        
 		request.getRequestDispatcher("/WEB-INF/Excursion.jsp").forward(request, response);
 				return;
