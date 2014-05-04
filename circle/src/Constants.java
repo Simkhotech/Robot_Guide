@@ -19,6 +19,8 @@ public class Constants {
 	public static final int LEFT = 1;
 	public static final int BACK = 2;
 	public static final int RIGHT = 3;
-	public static final float LINE_SPEED = 100;
+	public static final float LINE_SPEED = 300;
 	public static final float SENSOR_RADIUS = 100;
+	public static final double MIN_RADIUS = 15;
+	public static final double SLOW_RADIUS = 200;
 }
