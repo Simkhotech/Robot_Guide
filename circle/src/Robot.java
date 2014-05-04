@@ -65,7 +65,7 @@ public class Robot implements Runnable {
 			System.out.println("Connected.");
 			System.out.println("You cand driving...");
 			
-			driveToPoint(point);
+			driveToPoint2(point);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -103,10 +103,78 @@ public class Robot implements Runnable {
 		System.out.println("Start driving");
 		odometry.set(0, 0, 0);
 		System.out.println(odometry.x());
-		while (odometry.x() < 100) {
-			omniDrive.setVelocity(40, 0, 10);
+		omniDrive.setVelocity(260, 0, 0);
+		while (true) {
+			if (odometry.x() > 400) {
+				omniDrive.setVelocity(0, 0, 0);
+				break;
+			}
 		}
 		System.out.println(odometry.x());
+		System.out.println("Stop driving");
+	}
+	
+	private void driveToPoint2(GlobalPoint point) {
+		System.out.println("Start driving");
+		
+		double distance = 0;
+		double dx = 0;
+		double dy = 0;
+		double xSpeedCoef = 0;
+		double ySpeedCoef = 0;
+		double xSpeed = 0;
+		double ySpeed = 0;
+		double radius = 0;
+		
+		distance = Math.sqrt(Math.pow(point.getX() - odometry.x(), 2) + 
+				Math.pow(point.getY() - odometry.y(), 2));
+		
+		if (Math.abs(odometry.x() - point.getX()) > 1 || 
+				Math.abs(odometry.y() - point.getY()) > 1) {
+			 dx = point.getX() - odometry.x();
+			 dy = point.getY() - odometry.y();
+			 
+			 xSpeedCoef = dx / distance;
+			 ySpeedCoef = dy / distance;
+			 
+			 xSpeed = xSpeedCoef * Constants.LINE_SPEED;
+			 ySpeed = ySpeedCoef * Constants.LINE_SPEED;
+		
+			 omniDrive.setVelocity((float)xSpeed, (float)ySpeed, 0);
+		
+			 radius = (Math.pow(point.getX(), 2) + Math.pow(point.getY(), 2))
+					 - (Math.pow(odometry.x(), 2) + Math.pow(odometry.y(), 2));
+			 
+			// проверить координаты
+//			while (Math.abs(odometry.x() - point.getX()) > 1 || 
+//					Math.abs(odometry.y() - point.getY()) > 1) {
+			 
+
+			while (radius > Constants.MIN_RADIUS) {
+
+				distance = Math.sqrt(Math.pow(point.getX() - odometry.x(), 2) + 
+						Math.pow(point.getY() - odometry.y(), 2));
+				radius = (Math.pow(point.getX(), 2) + Math.pow(point.getY(), 2))
+						 - (Math.pow(odometry.x(), 2) + Math.pow(odometry.y(), 2));				
+				
+				
+				System.out.print("Remaining distance: ");
+				System.out.println(distance);
+				System.out.println(radius);
+				System.out.println(odometry.x());
+				System.out.println(odometry.y());
+				System.out.println(point.getX());
+				System.out.println(point.getY());
+				
+				
+			}
+			
+			omniDrive.setVelocity(0, 0, 0);
+			
+			// Stop the robot
+		}
+				
+		
 		System.out.println("Stop driving");
 	}
 	
@@ -130,8 +198,9 @@ public class Robot implements Runnable {
 		while (Math.abs(odometry.x() - point.getX()) > 1 || 
 				Math.abs(odometry.y() - point.getY()) > 1) {
 			
-			XFrontSpeed = (point.getX() - odometry.x())*10;
-			YLeftSpeed = (point.getY() - odometry.y())*10;
+			XFrontSpeed = (point.getX() - odometry.x()) * 10;
+			YLeftSpeed = (point.getY() - odometry.y()) * 10;
+			
 			if ( Math.abs(odometry.x() - point.getX()) > Constants.SENSOR_RADIUS-90) {
 				if (odometry.x() - point.getX() < 0){
 					XFrontSpeed = Constants.LINE_SPEED;

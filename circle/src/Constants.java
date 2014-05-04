@@ -21,4 +21,5 @@ public class Constants {
 	public static final int RIGHT = 3;
 	public static final float LINE_SPEED = 100;
 	public static final float SENSOR_RADIUS = 100;
+	public static final double MIN_RADIUS = 15;
 }

@@ -15,8 +15,8 @@ public class Main
         init();
         
         Robot robot = new Robot(hostname);
-//        robot.run(points.get(4));
-        robot.run();
+        robot.run(points.get(4));
+//        robot.run();
         
     }
 
@@ -31,7 +31,7 @@ public class Main
 				Constants.ACCESS_WALL_DISTANCE, -1f, Constants.ACCESS_WALL_DISTANCE, -1f));
 		points.add(3, new GlobalPoint(0, 400, 0, 
 				-1f, -1f, Constants.ACCESS_WALL_DISTANCE, Constants.ACCESS_WALL_DISTANCE));
-		points.add(4, new GlobalPoint(-100, -100, 0, 
+		points.add(4, new GlobalPoint(1000, 00, 0, 
 				-1f, -1f, Constants.ACCESS_WALL_DISTANCE, Constants.ACCESS_WALL_DISTANCE));
 		points.add(5, new GlobalPoint(0, 300, 0, 
 				-1f, -1f, Constants.ACCESS_WALL_DISTANCE, Constants.ACCESS_WALL_DISTANCE));
